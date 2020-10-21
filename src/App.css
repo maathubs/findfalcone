@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+.home {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -27,7 +27,35 @@
 .App-link {
   color: #61dafb;
 }
-
+.destination{
+  font-size: 12px;
+}
+.singleDestination{
+  display:inline-block;
+  margin-right: 6px;
+  width:150px;
+  text-align: initial;
+  vertical-align: top;
+}
+.startAgain,.findFalcone{
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  font-size: 16px;
+}
+css-2b097c-container {
+  position: relative;
+  box-sizing: border-box;
+  /* background-color: black; */
+  color: black !important;
+  font-size: 12px !important;
+  /* text-align: center; */
+}
+/* .home{
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+} */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
