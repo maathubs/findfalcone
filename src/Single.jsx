@@ -16,6 +16,7 @@ const customStyles = {
 }
 class Single extends Component {
   render() { 
+    
     let planetsList=[];
     if (this.props.state.planets.length > 0) {
         this.props.state.planets.map((planet) =>
@@ -26,9 +27,12 @@ class Single extends Component {
             })
        );
     }
+
+    let array2=this.props.state.selectedPlanets;
+    planetsList = planetsList.filter(val => !array2.includes(val.name));
     let optionItems = this.props.state.vehicles.map((vehicle,i) =>
         <Fragment>
-            <input type="radio" name={this.props.state.selectedPlanets[i]} onClick={this.props.selectVehicle} style={{width:"12px"}} value={vehicle.name}/>
+            <input type="radio" name={this.props.length} onClick={this.props.selectVehicle} style={{width:"12px"}} value={vehicle.name}/>
             <label style={{fontSize:"14px"}} >{vehicle.name}</label><br/>
         </Fragment>
     );
@@ -40,7 +44,7 @@ class Single extends Component {
             onChange={this.props.selectPlanet}
             styles = { customStyles }
             options={planetsList} />
-            {this.props.state.selectedPlanets.length>=1&&
+            {this.props.state.selectedPlanets.length>=this.props.length&&
                 <p>
                     {optionItems}
                 </p>

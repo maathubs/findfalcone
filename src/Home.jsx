@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
-import Select from "react-select";
 import { withRouter } from "react-router-dom";
 import Single from './Single'
 
@@ -60,7 +59,8 @@ class Home extends Component {
   }
 
   selectVehicle=(e)=>{
-    this.setState({ selectedVehicles: [...this.state.selectedVehicles,e.target.value ] })
+    this.setState({ selectedVehicles: [...this.state.selectedVehicles,e.target.value ] });
+   
   }
 
   selectPlanet = (selectedOption) => {
@@ -78,6 +78,7 @@ class Home extends Component {
     })
     .then((response) => response.json())
     .then(data => {
+      console.log("data",data)
       this.props.history.push({
         pathname: '/success',
         query: {
@@ -89,15 +90,17 @@ class Home extends Component {
   }
 
   render() {
+    
+    console.log("Selected Vehicle",this.state.selectedVehicles,this.state.selectedPlanets)
     return (
       <div className="home">
         <div><h2>Finding Falcone...</h2></div>
         <div>Select Planets you want to search in :</div>
         <div>
-          <Single state={this.state} destination="Destination 1" selectPlanet={this.selectPlanet} selectVehicle={this.selectVehicle}/>
-          <Single state={this.state} destination="Destination 2" selectPlanet={this.selectPlanet} selectVehicle={this.selectVehicle}/>
-          <Single state={this.state} destination="Destination 3" selectPlanet={this.selectPlanet} selectVehicle={this.selectVehicle}/>
-          <Single state={this.state} destination="Destination 4" selectPlanet={this.selectPlanet} selectVehicle={this.selectVehicle}/>
+          <Single state={this.state} length="1"destination="Destination 1" selectPlanet={this.selectPlanet} selectVehicle={this.selectVehicle}/>
+          <Single state={this.state} length="2" destination="Destination 2" selectPlanet={this.selectPlanet} selectVehicle={this.selectVehicle}/>
+          <Single state={this.state} length="3"destination="Destination 3" selectPlanet={this.selectPlanet} selectVehicle={this.selectVehicle}/>
+          <Single state={this.state}length="4" destination="Destination 4" selectPlanet={this.selectPlanet} selectVehicle={this.selectVehicle}/>
         </div> 
         <div>
           <p>
